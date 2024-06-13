@@ -1,0 +1,47 @@
+{% extends "store/main.html" %}
+{% load static %}
+
+{% block content %}
+<div class="nav-feature">{{ category.name }}</div>
+<section class="cards-section pants-cards">
+    {% for product in products %}
+    <div class="card">
+        <a href="{% url 'product_detail' product.id %}">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <div class="card-content">
+                <h4>{{ product.name }}</h4>
+                <!-- <p>Size: M</p> -->
+                <p>Price: ${{ product.price|floatformat:2}}</p>
+                <a href="{% url 'cart' %}">
+                    <button class="add-to-cart update-cart" data-product-id="{{ product.id }}" data-action="add">Add to Cart &plus; </button>
+                </a>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const button = document.querySelector('.add-to-cart');
+        button.addEventListener('click', function(event) {
+            const productId = this.dataset.productId;
+            fetch(`/add_to_cart/${productId}/`, {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(`Product added to cart. Quantity: ${data.quantity}`);
+                } else {
+                    alert('There was an error adding the product to the cart.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+    </script>
+{% endblock content %}

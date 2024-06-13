@@ -1,0 +1,215 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ONkretiv</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/ONkretiv.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header class="menu__wrapper">
+        <div class="menu__bar">
+            <a href="{% url 'ONkretiv' %}" title="Home" aria-label="home" class="logo">
+                <img src="{% static 'assets/ON-kretiv.png' %}" alt="ON-kretiv">
+            </a>
+            <nav>
+                <ul class="navigation hide">
+                    <li>
+                        <button>
+                            COLLECTION
+                            <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+                                <path
+                                    d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="dropdown__wrapper">
+                            <div class="dropdown">
+                                <ul class="list-items-with-description">
+                                    <li>
+                                        <a href="{% url 'products_by_category' category_type='category' category_name='Jeans & Cargo Pants' %}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-160q-17 0-28.5-11.5T80-200q0-10 4-18.5T96-232l344-258v-70q0-17 12-28.5t29-11.5q25 0 42-18t17-43q0-25-17.5-42T480-720q-25 0-42.5 17.5T420-660h-80q0-58 41-99t99-41q58 0 99 40.5t41 98.5q0 47-27.5 84T520-526v36l344 258q8 5 12 13.5t4 18.5q0 17-11.5 28.5T840-160H120Zm120-80h480L480-420 240-240Z"/></svg>
+                                        <div class="item-title">
+                                            <h3>Pants</h3>
+                                            <p>Quality Jeans & Cargo Pants</p>
+                                        </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'products_by_category' category_type='category' category_name='Shoes' %}">
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-shoe"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6h5.426a1 1 0 0 1 .863 .496l1.064 1.823a3 3 0 0 0 1.896 1.407l4.677 1.114a4 4 0 0 1 3.074 3.89v2.27a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10a1 1 0 0 1 1 -1z" /><path d="M14 13l1 -2" /><path d="M8 18v-1a4 4 0 0 0 -4 -4h-1" /><path d="M10 12l1.5 -3" /></svg>
+                                        <div class="item-title">
+                                            <h3>Shoes</h3>
+                                            <p>Sneakers & Dress-Shoes</p>
+                                        </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'products_by_category' category_type='category' category_name='T-Shirt' %}"">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m240-522-40 22q-14 8-30 4t-24-18L66-654q-8-14-4-30t18-24l230-132h70q9 0 14.5 5.5T400-820v20q0 33 23.5 56.5T480-720q33 0 56.5-23.5T560-800v-20q0-9 5.5-14.5T580-840h70l230 132q14 8 18 24t-4 30l-80 140q-8 14-23.5 17.5T760-501l-40-20v361q0 17-11.5 28.5T680-120H280q-17 0-28.5-11.5T240-160v-362Zm80-134v456h320v-456l124 68 42-70-172-100q-15 51-56.5 84.5T480-640q-56 0-97.5-33.5T326-758L154-658l42 70 124-68Zm160 177Z"/></svg>
+                                        <div class="item-title">
+                                            <h3>Designer T-shirts</h3>
+                                            <p>Top Quality T-shirts</p>
+                                        </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'products_by_category' category_type='category' category_name='Jackets & Hoodies' %}"">
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-jacket"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 3l-4 5l-4 -5" /><path d="M12 19a2 2 0 0 1 -2 2h-4a2 2 0 0 1 -2 -2v-8.172a2 2 0 0 1 .586 -1.414l.828 -.828a2 2 0 0 0 .586 -1.414v-2.172a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v2.172a2 2 0 0 0 .586 1.414l.828 .828a2 2 0 0 1 .586 1.414v8.172a2 2 0 0 1 -2 2h-4a2 2 0 0 1 -2 -2z" /><path d="M20 13h-3a1 1 0 0 0 -1 1v2a1 1 0 0 0 1 1h3" /><path d="M4 17h3a1 1 0 0 0 1 -1v-2a1 1 0 0 0 -1 -1h-3" /><path d="M12 19v-11" /></svg>
+                                        <div class="item-title">
+                                            <h3>Jackets & Hoodies</h3>
+                                            <p>Designer Jackets & Hoodies </p>
+                                        </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button>
+                            EXCLUSIVE
+                            <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+                                <path
+                                    d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="dropdown__wrapper">
+                            <div class="dropdown">
+                                <ul class="list-items-with-description">
+                                    <li>
+                                        <a href="{% url 'products_by_category' category_type='special' category_name='LIMITED EDITION' %}">
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-lock-access"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 11m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" /><path d="M10 11v-2a2 2 0 1 1 4 0v2" /></svg>
+                                        <div class="item-title">
+                                            <h3>LIMITED BRANDS</h3>
+                                            <p>Get limited Edition Items</p>
+                                        </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'products_by_category' category_type='special' category_name='DISCOUNTED ITEMS' %}">
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-discount"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 15l6 -6" /><circle cx="9.5" cy="9.5" r=".5" fill="currentColor" /><circle cx="14.5" cy="14.5" r=".5" fill="currentColor" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg>
+                                        <div class="item-title">
+                                            <h3>DISCOUNTED ITEMS</h3>
+                                            <p>Great Discounts On Select Items</p>
+                                        </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'products_by_category' category_type='special' category_name='DESIGN YOUR PRODUCT' %}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m240-522-40 22q-14 8-30 4t-24-18L66-654q-8-14-4-30t18-24l230-132h70q9 0 14.5 5.5T400-820v20q0 33 23.5 56.5T480-720q33 0 56.5-23.5T560-800v-20q0-9 5.5-14.5T580-840h70l230 132q14 8 18 24t-4 30l-80 140q-8 14-23.5 17.5T760-501l-40-20v361q0 17-11.5 28.5T680-120H280q-17 0-28.5-11.5T240-160v-362Zm80-134v456h320v-456l124 68 42-70-172-100q-15 51-56.5 84.5T480-640q-56 0-97.5-33.5T326-758L154-658l42 70 124-68Zm160 177Z"/></svg>
+                                        <div class="item-title">
+                                            <h3>Design Your T-shirt & Hoodies</h3>
+                                            <p>Take Charge Of Your Style</p>
+                                        </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'launch' %}">
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-jacket"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 3l-4 5l-4 -5" /><path d="M12 19a2 2 0 0 1 -2 2h-4a2 2 0 0 1 -2 -2v-8.172a2 2 0 0 1 .586 -1.414l.828 -.828a2 2 0 0 0 .586 -1.414v-2.172a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v2.172a2 2 0 0 0 .586 1.414l.828 .828a2 2 0 0 1 .586 1.414v8.172a2 2 0 0 1 -2 2h-4a2 2 0 0 1 -2 -2z" /><path d="M20 13h-3a1 1 0 0 0 -1 1v2a1 1 0 0 0 1 1h3" /><path d="M4 17h3a1 1 0 0 0 1 -1v-2a1 1 0 0 0 -1 -1h-3" /><path d="M12 19v-11" /></svg>
+                                        <div class="item-title">
+                                            <h3>Coming Soon</h3>
+                                            <p>STAY TUNED </p>
+                                        </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>                   
+                </ul>
+            </nav>
+        </div>
+        <div class="action-buttons hide">
+            <a href="{% url 'login' %}" title="Log in" class="primary">
+                Log In
+            </a>
+            <a href="{% url 'cart' %}" title="Cart" class="secondary">
+                <span class="cart-total">3</span> <!-- Update the number dynamically -->
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg>
+                <!-- Sign up -->
+            </a>
+        </div>
+        <button aria-label="Open menu" class="burger-menu" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 8l16 0" />
+                <path d="M4 16l16 0" />
+            </svg>
+        </button>
+    </header>
+
+    <div class="sign-container">
+        <div class="sign-title">Registration</div>
+        <div class="sign-content">
+            <form method="post">
+                {% csrf_token %}
+                <div class="sign-user-details">
+                    <div class="sign-input-box">
+                        <span class="sign-details">Full Name</span>
+                        <input type="text" name="full_name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="sign-input-box">
+                        <span class="sign-details">Username</span>
+                        <input type="text" name="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="sign-input-box">
+                        <span class="sign-details">Email</span>
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="sign-input-box">
+                        <span class="sign-details">Phone Number</span>
+                        <input type="text" name="phone_number" placeholder="Enter your number" required>
+                    </div>
+                    <div class="sign-input-box">
+                        <span class="sign-details">Password</span>
+                        <input type="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="sign-input-box">
+                        <span class="sign-details">Confirm Password</span>
+                        <input type="password" name="confirm_password" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+                <div class="gender-details">
+                    <input type="radio" name="gender" id="dot-1" value="M">
+                    <input type="radio" name="gender" id="dot-2" value="F">
+                    <input type="radio" name="gender" id="dot-3" value="N">
+                    <span class="gender-title">Gender</span>
+                    <div class="category">
+                        <label for="dot-1">
+                            <span class="dot one"></span>
+                            <span class="gender">Male</span>
+                        </label>
+                        <label for="dot-2">
+                            <span class="dot two"></span>
+                            <span class="gender">Female</span>
+                        </label>
+                        <label for="dot-3">
+                            <span class="dot three"></span>
+                            <span class="gender">Prefer not to say</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="sign-button">
+                    <input type="submit" value="Register">
+                </div>
+                <p class="sign-p">You have an account? <a href="{% url 'login' %}">Log-In</a></p>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>

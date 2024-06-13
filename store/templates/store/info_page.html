@@ -1,0 +1,84 @@
+{% extends "store/main.html" %}
+{% load static %}
+
+{% block content %}
+<div class="product-info-container">
+    <div class="product-image-slider">
+        <div class="slider">
+            {% for i in "12345" %}
+            <div class="slide">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="product-details">
+        <h1>{{ product.name }}</h1>
+        <div class="product-colors">
+            <h3>Colors</h3>
+            <div class="colors">
+                <label>
+                    <input type="radio" name="color" value="color1"> 
+                    <span class="color-box" style="background-color: #000;"></span>
+                </label>
+                <label>
+                    <input type="radio" name="color" value="color2"> 
+                    <span class="color-box" style="background-color: #fff;"></span>
+                </label>
+                <label>
+                    <input type="radio" name="color" value="color3"> 
+                    <span class="color-box" style="background-color: #f00;"></span>
+                </label>
+                <label>
+                    <input type="radio" name="color" value="color4"> 
+                    <span class="color-box" style="background-color: #0f0;"></span>
+                </label>
+                <label>
+                    <input type="radio" name="color" value="color5"> 
+                    <span class="color-box" style="background-color: #00f;"></span>
+                </label>
+                <label>
+                    <input type="radio" name="color" value="color6"> 
+                    <span class="color-box" style="background-color: #ff0;"></span>
+                </label>
+            </div>
+        </div>
+        <div class="product-sizes">
+            <h3>Sizes</h3>
+            <label><input type="checkbox" name="size" value="S"> S</label>
+            <label><input type="checkbox" name="size" value="M"> M</label>
+            <label><input type="checkbox" name="size" value="L"> L</label>
+            <label><input type="checkbox" name="size" value="XL"> XL</label>
+            <label><input type="checkbox" name="size" value="XXL"> XXL</label>
+            <label><input type="checkbox" name="size" value="XXXL"> XXXL</label>
+        </div>
+        <a href="{% url 'cart' %}">
+            <button class="add-to-cart-btn" data-product-id="{{ product.id }}">Add to Cart</button>
+        </a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.querySelector('.add-to-cart-btn');
+    button.addEventListener('click', function(event) {
+        const productId = this.dataset.productId;
+        fetch(`/add_to_cart/${productId}/`, {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(`Product added to cart. Quantity: ${data.quantity}`);
+            } else {
+                alert('There was an error adding the product to the cart.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+});
+</script>
+{% endblock content %}
